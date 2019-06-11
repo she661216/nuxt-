@@ -1,0 +1,116 @@
+.border {
+  border: 1px solid #F6F6F6;
+}
+.borderT {
+  border-top: 1px solid #F6F6F6;
+}
+.borderB {
+  border-bottom: 1px solid #F6F6F6;
+}
+.borderL {
+  border-left: 1px solid #F6F6F6;
+}
+.borderR {
+  border-right: 1px solid #F6F6F6;
+}
+@media screen and (max-width: 700px) {
+
+  .border {
+    position: relative;
+    &:after {
+      display: block;
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      border: 1px solid #F6F6F6;
+      transform: scale(.5);
+    }
+  }
+
+  .borderT,
+  .borderB,
+  .borderR,
+  .borderL {
+    position: relative;
+    overflow: hidden;
+    border: none;
+  }
+
+  .borderT:before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    content: '';
+    display: block;
+    width: 200%;
+    height: 1px; /* no */
+    margin-left: -25%;
+    background: #F6F6F6;
+    transform: scaleY(.5);
+  }
+
+  .borderL:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: '';
+    display: block;
+    width: 1px;
+    height: 100%;
+    background: #F6F6F6;
+    transform: scaleX(.5);
+    clear: both;
+  }
+
+  .borderTB:after,
+  .borderTB:before {
+    position: absolute;
+    left: 0;
+    content: '';
+    display: block;
+    width: 200%;
+    height: 1px; /* no */
+    margin-left: -25%;
+    background: #F6F6F6;
+    transform: scaleY(.5);
+  }
+
+  .borderTB:before {
+    top: 0;
+    clear: both;
+  }
+
+  .borderTB:after {
+    bottom: 0;
+  }
+
+  .borderR:before {
+    position: absolute;
+    right: 0;
+    top: 0;
+    content: '';
+    display: block;
+    width: 1px;
+    height: 100%;
+    background: #F6F6F6;
+    transform: scaleX(.5);
+    clear: both;
+  }
+
+  .borderB:after {
+    clear: both;
+    display: table;
+    content: " ";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 200%;
+    height: 1px; /* no */
+    background: #F6F6F6;
+    transform: scaleY(.5);
+    //      background-image: linear-gradient(0deg, transparent 50%, #F6F6F6 50%);
+  }
+}
